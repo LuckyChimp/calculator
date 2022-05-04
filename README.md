@@ -6,7 +6,7 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
+  - [Screenshots](#screenshots)
   - [Link](#link)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -26,10 +26,15 @@ Users are able to:
 - **Bonus**: Continue calculating where they left off, even if the tab is already closed but the browser window is still open
 - **Bonus**: Always start with their favorite theme, because it will be saved even if the entire browser window is closed
 
-### Screenshot
+### Screenshots
 
+Theme 1:
 ![Theme 1](./screenshot-theme1.png)
+
+Theme 2:
 ![Theme 2](./screenshot-theme2.png)
+
+Theme 3:
 ![Theme 3](./screenshot-theme3.png)
 
 ### Link
@@ -57,9 +62,9 @@ First, you should set a data-theme attribute in HTML for the body element with t
 ```
 Then in JavaScript, for example when you click on a button or toggle button, you can set this data-theme attribute according to the name of the chosen theme:
 ```js
-document.body.dataset.theme = name;
+document.body.dataset.theme = 'theme-2';
 ```
-Then in SCSS it is best to create one or more files with the themes and their respective style rules. I created one file and it could look like this:
+Then in SCSS it is best to create one or more files with the themes and their respective style rules. One file could look like this:
 ```css
 $theme1: (
     'clr_example': #3a4764,
@@ -94,7 +99,7 @@ With the help of a mixin and the map function, the previously defined variables 
     }
             
 ```
-Now you only have to call the mixin for each theme:
+Now you only have to include the mixin for each theme:
 ```css
 @include theme('theme-1', themes.$theme1);
 @include theme('theme-2', themes.$theme2);
