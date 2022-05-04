@@ -11,7 +11,7 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 - [My process](#my-process)
   - [Built with](#built-with)
   - [What I learned](#what-i-learned)
-  - [Useful resources](#useful-resources)
+  - [Useful resource](#useful-resource)
 - [Author](#author)
 
 ## Overview
@@ -106,7 +106,7 @@ Now you only have to include the mixin for each theme:
 @include theme('theme-3', themes.$theme3);
 ```
 
-### Useful resources
+### Useful resource
 
 - [Theming with Sass: An SCSS Tutorial](https://www.toptal.com/sass/theming-scss-tutorial) - This helped me to understand how to implement different color themes (or other themes in the future) in scss
 
