@@ -28,13 +28,13 @@ Users are able to:
 
 ### Screenshots
 
-Theme 1:
+#### Theme 1
 ![Theme 1](./screenshot-theme1.png)
 
-Theme 2:
+#### Theme 2
 ![Theme 2](./screenshot-theme2.png)
 
-Theme 3:
+#### Theme 3
 ![Theme 3](./screenshot-theme3.png)
 
 ### Link
