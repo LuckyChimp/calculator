@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <title>Frontend Mentor | Calculator app</title>
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  
+  <script src="scripts/main.js"></script>
+</head>
+<body data-theme="theme-1">
+  <div class="calculator">
+    <header>
+      <h1 class="calculator-title">calc</h1>
+      <span class="theme-switch-title">THEME</span>
+      <div class="theme-switch-container">
+        <div class="theme-switch-labels">
+          <span class="theme-switch-label">1</span>
+          <span class="theme-switch-label">2</span>
+          <span class="theme-switch-label">3</span>
+        </div>
+        <div class="theme-switch">
+          <div class="theme-switch-toggle"></div>
+        </div>
+      </div>
+    </header>
+
+    <output id="result">0</output>
+
+    <main>
+      <button class="button-number" id="button-7">7</button>
+      <button class="button-number" id="button-8">8</button>
+      <button class="button-number" id="button-9">9</button>
+      <button id="button-delete">DEL</button>
+
+      <button class="button-number" id="button-4">4</button>
+      <button class="button-number" id="button-5">5</button>
+      <button class="button-number" id="button-6">6</button>
+      <button id="button-plus">+</button>
+
+      <button class="button-number" id="button-1">1</button>
+      <button class="button-number" id="button-2">2</button>
+      <button class="button-number" id="button-3">3</button>
+      <button id="button-minus">-</button>
+
+      <button id="button-dot">.</button>
+      <button class="button-number" id="button-0">0</button>
+      <button id="button-slash">/</button>
+      <button id="button-times">x</button>
+
+      <button id="button-reset">RESET</button>
+      <button id="button-calculate">=</button>
+    </main>
+  </div>
+
+  
+  <footer class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="https://github.com/LuckyChimp">LuckyChimp</a>.
+  </footer>
+</body>
+</html>

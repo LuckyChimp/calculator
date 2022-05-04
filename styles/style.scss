@@ -1,0 +1,193 @@
+@use 'sass:map';
+@use './themes';
+
+// variables
+$border-radius: 8px;
+$breakpoint: 450px;
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Spartan', sans-serif;
+    font-weight: 700;
+    user-select: none;
+    transition: background-color 1s ease, color 1s ease;
+}
+
+html {
+    @media screen and (max-width: $breakpoint) {
+        font-size: 18px;
+    }
+
+    @media screen and (min-width: $breakpoint) {
+        font-size: 24px;
+    }
+}
+
+@mixin theme($name, $map) {
+    body[data-theme=#{$name}] {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: map.get($map, 'clr_bg_main');
+
+        .calculator {
+            display: flex;
+            flex-flow: column wrap;
+
+            header {
+                $font-size-small: 0.4rem;
+                position: relative;
+                display: flex;
+                flex-flow: row no-wrap;
+                justify-content: space-between;
+                align-items: center;
+
+                * {
+                    color: map.get($map, 'clr_txt_topScreen');
+                }
+
+                .calculator-title {
+                    font-size: 1rem;
+                    line-height: 1rem;
+                }
+
+
+                .theme-switch-title {
+                    position: absolute;
+                    right: 2.5rem;
+                    bottom: 0.15rem;
+                    font-size: $font-size-small;
+                    letter-spacing: 0.1em;
+                }
+
+                .theme-switch-container {
+                    font-size: 0px;
+                    .theme-switch-labels {
+                        display: flex;
+                        flex-flow: row nowrap;
+                        justify-content: space-evenly;
+                        margin-bottom: 0.1rem;
+
+                        .theme-switch-label {
+                            font-size: $font-size-small;
+                        }
+                    }
+
+                    .theme-switch {
+                        width: 2rem;
+                        padding: 0.15rem;
+                        border-radius: 0.4rem;
+                        background-color: map.get($map, 'clr_bg_tgleKeyp');
+                        cursor: pointer;
+
+                        .theme-switch-toggle {
+                            width: 0.5rem;
+                            height: 0.5rem;
+                            border-radius: 50%;
+                            background-color: map.get($map, 'clr_key_equTgle');
+                            transition: all 250ms ease;
+                        }
+                    }
+                }
+            }
+
+            output#result {
+                // max-width is set by js on resize event of window
+                margin: 0.75rem 0;
+                padding: 1em 0.5em calc(1em - 10px);
+                border-radius: $border-radius;
+                background-color: map.get($map, 'clr_bg_screen');;
+                color: map.get($map, 'clr_txt_topScreen');
+                font-size: 1.5rem;
+                text-align: end;
+                overflow-x: auto;
+                overflow-y: hidden;
+                user-select: text;
+
+                &::-webkit-scrollbar {
+                    width: 10px;
+                    height: 10px;
+                }
+                &::-webkit-scrollbar-thumb {
+                    background-color: map.get($map, 'clr_scrlBr_thumb');
+                    border-radius: $border-radius;
+                }
+                &::-webkit-scrollbar-track {
+                    background-color: map.get($map, 'clr_scrlBr_track');
+                    border-radius: $border-radius;
+                }
+            }
+
+            main {
+                display: grid;
+                grid-template: repeat(5, 1fr) / repeat(4, 1fr);
+                gap: 0.75rem;
+                padding: 0.75rem;
+                border-radius: $border-radius;
+                background-color: map.get($map, 'clr_bg_tgleKeyp');
+
+
+                button {
+                    padding: 0.5em 1.25em calc(0.5em - 6px);
+                    border: none;
+                    border-bottom: 3px solid map.get($map, 'clr_keyShadow_numsOps');
+                    border-radius: $border-radius;
+                    background-color: map.get($map, 'clr_key_numsOps');
+                    color: map.get($map, 'clr_txt_numsOps');
+                    font-size: 1rem;
+                    line-height: 1rem;
+                    cursor: pointer;
+                    transition: all 100ms ease;
+
+                    &:active {
+                        filter: brightness(60%);
+                        transform: translateY(2px);
+                    }
+                }
+
+                #button-delete, #button-reset, #button-calculate {
+                    font-size: 0.6rem;
+                    line-height: 0.6rem;
+                }
+
+                #button-delete, #button-reset {
+                    border-bottom-color: map.get($map, 'clr_keyShadow_delRes');
+                    background-color: map.get($map, 'clr_key_delRes');
+                    color: map.get($map, 'clr_txt_delRes');
+                }
+
+                #button-reset {
+                    grid-column: 1 / span 2;
+                }
+
+                #button-calculate {
+                    grid-column: 3 / span 2;
+                    border-bottom-color: map.get($map, 'clr_keyShadow_equ');
+                    background-color: map.get($map, 'clr_key_equTgle');
+                    color: map.get($map, 'clr_txt_equ');
+                }
+            }
+        }
+
+        .attribution {
+            position: absolute;
+            bottom: 0.25rem;
+            right: 0.25rem;
+            font-size: 11px;
+            font-weight: 400;
+            color: #8f8f8f;
+        
+            a {
+                color: #7881aa;
+                font-weight: 400;
+             }
+        }
+    }
+}
+
+@include theme('theme-1', themes.$theme1);
+@include theme('theme-2', themes.$theme2);
+@include theme('theme-3', themes.$theme3);
