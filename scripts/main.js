@@ -57,7 +57,7 @@ window.onload = () => {
         let mainElmnt = document.querySelector('main');
         let outputElmnt = document.getElementById('result');
 
-        outputElmnt.style.maxWidth = mainElmnt.clientWidth+'px';
+        outputElmnt.style.maxWidth = `${mainElmnt.clientWidth} px`;
     }
 
     function onThemeSwitchClick() {
