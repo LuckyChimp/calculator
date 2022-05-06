@@ -17,7 +17,6 @@ window.onload = () => {
     let btnCalculate = document.getElementById('button-calculate');
     
     // register event listeners
-    window.addEventListener('resize', initOutputWidth);
     themeSwitch.addEventListener('click', onThemeSwitchClick);
     for (let btnNumber of btnNumbers) {
         btnNumber.addEventListener('click', onNumberClick);
@@ -34,7 +33,6 @@ window.onload = () => {
     init();
 
     function init() {
-        initOutputWidth();
         initTheme();
         initResult();
 
@@ -51,13 +49,6 @@ window.onload = () => {
                 document.getElementById('result').innerText = lastSavedResult;
             }
         }
-    }
-
-    function initOutputWidth() {
-        let mainElmnt = document.querySelector('main');
-        let outputElmnt = document.getElementById('result');
-
-        outputElmnt.style.maxWidth = `${mainElmnt.clientWidth} px`;
     }
 
     function onThemeSwitchClick() {
